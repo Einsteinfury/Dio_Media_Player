@@ -19,6 +19,10 @@
   <property name="windowTitle">
    <string notr="true">DiO Media Player</string>
   </property>
+  <property name="windowIcon">
+   <iconset resource="icons.qrc">
+    <normaloff>:/icons/icons/kono_dio_da.jpg</normaloff>:/icons/icons/kono_dio_da.jpg</iconset>
+  </property>
   <property name="styleSheet">
    <string notr="true"/>
   </property>
@@ -87,18 +91,6 @@
       </layout>
      </widget>
     </item>
-    <item row="2" column="0">
-     <widget class="QSlider" name="playbackSlider">
-      <property name="font">
-       <font>
-        <pointsize>10</pointsize>
-       </font>
-      </property>
-      <property name="orientation">
-       <enum>Qt::Horizontal</enum>
-      </property>
-     </widget>
-    </item>
     <item row="3" column="0">
      <widget class="QWidget" name="controls" native="true">
       <property name="sizePolicy">
@@ -143,102 +135,143 @@
          </property>
          <layout class="QHBoxLayout" name="horizontalLayout_7">
           <property name="spacing">
-           <number>10</number>
+           <number>0</number>
           </property>
           <property name="leftMargin">
-           <number>0</number>
+           <number>6</number>
           </property>
           <property name="topMargin">
            <number>0</number>
           </property>
           <property name="rightMargin">
-           <number>0</number>
+           <number>6</number>
           </property>
           <property name="bottomMargin">
            <number>0</number>
           </property>
           <item>
-           <widget class="QWidget" name="volumeDuration" native="true">
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
+           <layout class="QHBoxLayout" name="horizontalLayout_6">
+            <property name="rightMargin">
+             <number>0</number>
             </property>
-            <property name="font">
-             <font>
-              <pointsize>10</pointsize>
-             </font>
-            </property>
-            <layout class="QHBoxLayout" name="horizontalLayout_8">
-             <property name="leftMargin">
-              <number>0</number>
-             </property>
-             <property name="topMargin">
-              <number>0</number>
-             </property>
-             <property name="rightMargin">
-              <number>0</number>
-             </property>
-             <property name="bottomMargin">
-              <number>0</number>
-             </property>
-             <item>
-              <widget class="QLabel" name="volumeLabel">
-               <property name="font">
-                <font>
-                 <pointsize>10</pointsize>
-                </font>
+            <item>
+             <widget class="QWidget" name="volumeDuration" native="true">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="font">
+               <font>
+                <pointsize>10</pointsize>
+               </font>
+              </property>
+              <layout class="QHBoxLayout" name="horizontalLayout_8">
+               <property name="spacing">
+                <number>13</number>
                </property>
-               <property name="text">
-                <string>Volume</string>
+               <property name="leftMargin">
+                <number>0</number>
                </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QSlider" name="volumeSlider">
-               <property name="font">
-                <font>
-                 <pointsize>10</pointsize>
-                </font>
+               <property name="topMargin">
+                <number>0</number>
                </property>
-               <property name="maximum">
-                <number>100</number>
+               <property name="rightMargin">
+                <number>0</number>
                </property>
-               <property name="sliderPosition">
-                <number>100</number>
+               <property name="bottomMargin">
+                <number>0</number>
                </property>
-               <property name="orientation">
-                <enum>Qt::Horizontal</enum>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QLabel" name="durationLabel">
-               <property name="sizePolicy">
-                <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
-                 <horstretch>0</horstretch>
-                 <verstretch>0</verstretch>
-                </sizepolicy>
-               </property>
-               <property name="font">
-                <font>
-                 <pointsize>10</pointsize>
-                </font>
-               </property>
-               <property name="layoutDirection">
-                <enum>Qt::LeftToRight</enum>
-               </property>
-               <property name="text">
-                <string>0:00 / 0:00</string>
-               </property>
-               <property name="alignment">
-                <set>Qt::AlignCenter</set>
-               </property>
-              </widget>
-             </item>
-            </layout>
-           </widget>
+               <item>
+                <widget class="QWidget" name="volumeContainer" native="true">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <layout class="QHBoxLayout" name="horizontalLayout_5">
+                  <item>
+                   <widget class="QLabel" name="volumeLabel">
+                    <property name="font">
+                     <font>
+                      <pointsize>10</pointsize>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>Volume</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QSlider" name="volumeSlider">
+                    <property name="font">
+                     <font>
+                      <pointsize>10</pointsize>
+                     </font>
+                    </property>
+                    <property name="focusPolicy">
+                     <enum>Qt::NoFocus</enum>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">QSlider::handle {
+	width: 18px;
+	border-radius: 7px;
+	background: qlineargradient(spread:pad, x1:0, y1:1, x2:1, y2:0, stop:0 rgba(205, 205, 205, 255), stop:1 rgba(255, 255, 255, 255))
+}
+
+QSlider::sub-page:horizontal {
+background: qlineargradient(x1: 0, y1: 0,    x2: 0, y2: 1,
+    stop: 0 #66e, stop: 1 #287cd1);
+background: qlineargradient(x1: 0, y1: 0.2, x2: 1, y2: 1,
+    stop: 0 #bbf, stop: 1 #287cd1);
+border: 1px solid #777;
+height: 15px;
+}</string>
+                    </property>
+                    <property name="maximum">
+                     <number>100</number>
+                    </property>
+                    <property name="sliderPosition">
+                     <number>100</number>
+                    </property>
+                    <property name="orientation">
+                     <enum>Qt::Horizontal</enum>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+               </item>
+               <item>
+                <widget class="QLabel" name="durationLabel">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="font">
+                  <font>
+                   <pointsize>10</pointsize>
+                  </font>
+                 </property>
+                 <property name="layoutDirection">
+                  <enum>Qt::LeftToRight</enum>
+                 </property>
+                 <property name="text">
+                  <string>0:00 / 0:00</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignCenter</set>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+           </layout>
           </item>
          </layout>
         </widget>
@@ -284,13 +317,13 @@
             </property>
             <layout class="QHBoxLayout" name="horizontalLayout_11">
              <property name="leftMargin">
-              <number>0</number>
+              <number>6</number>
              </property>
              <property name="topMargin">
               <number>0</number>
              </property>
              <property name="rightMargin">
-              <number>0</number>
+              <number>6</number>
              </property>
              <property name="bottomMargin">
               <number>0</number>
@@ -311,6 +344,9 @@
                  <pointsize>10</pointsize>
                 </font>
                </property>
+               <property name="focusPolicy">
+                <enum>Qt::NoFocus</enum>
+               </property>
                <property name="text">
                 <string>&lt;</string>
                </property>
@@ -328,6 +364,9 @@
                 <font>
                  <pointsize>10</pointsize>
                 </font>
+               </property>
+               <property name="focusPolicy">
+                <enum>Qt::NoFocus</enum>
                </property>
                <property name="text">
                 <string>Play</string>
@@ -349,6 +388,9 @@
                 <font>
                  <pointsize>10</pointsize>
                 </font>
+               </property>
+               <property name="focusPolicy">
+                <enum>Qt::NoFocus</enum>
                </property>
                <property name="styleSheet">
                 <string notr="true"/>
@@ -388,13 +430,13 @@
            <number>6</number>
           </property>
           <property name="leftMargin">
-           <number>0</number>
+           <number>6</number>
           </property>
           <property name="topMargin">
            <number>0</number>
           </property>
           <property name="rightMargin">
-           <number>0</number>
+           <number>6</number>
           </property>
           <property name="bottomMargin">
            <number>0</number>
@@ -438,6 +480,9 @@
                  <pointsize>10</pointsize>
                 </font>
                </property>
+               <property name="focusPolicy">
+                <enum>Qt::NoFocus</enum>
+               </property>
                <property name="text">
                 <string>Shuffle</string>
                </property>
@@ -456,6 +501,9 @@
                  <pointsize>10</pointsize>
                 </font>
                </property>
+               <property name="focusPolicy">
+                <enum>Qt::NoFocus</enum>
+               </property>
                <property name="text">
                 <string>Loop</string>
                </property>
@@ -468,6 +516,74 @@
         </widget>
        </item>
       </layout>
+     </widget>
+    </item>
+    <item row="2" column="0">
+     <widget class="QSlider" name="playbackSlider">
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="mouseTracking">
+       <bool>false</bool>
+      </property>
+      <property name="focusPolicy">
+       <enum>Qt::NoFocus</enum>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QSlider::groove:horizontal {
+border: 1px solid #bbb;
+background: white;
+height: 10px;
+border-radius: 4px;
+}
+
+QSlider::sub-page:horizontal {
+background: qlineargradient(x1: 0, y1: 0,    x2: 0, y2: 1,
+    stop: 0 #66e, stop: 1 #287cd1);
+background: qlineargradient(x1: 0, y1: 0.2, x2: 1, y2: 1,
+    stop: 0 #bbf, stop: 1 #287cd1);
+border: 1px solid #777;
+height: 10px;
+border-radius: 1px;
+}
+
+QSlider::add-page:horizontal {
+background: grey;
+border: 1px solid #777;
+height: 10px;
+border-radius: 1px;
+}
+
+QSlider::handle:horizontal {
+background: qlineargradient(x1:0, y1:0, x2:1, y2:1,
+    stop:0 #eee, stop:1 #ccc);
+border: 1px solid #777;
+border-radius: 1px;
+width: 5px;
+margin-top: -2px;
+margin-bottom: -2px;
+}
+
+QSlider::handle:horizontal:hover {
+background: qlineargradient(x1:0, y1:0, x2:1, y2:1,
+    stop:0 #fff, stop:1 #ddd);
+border: 1px solid rgb(134, 134, 134);
+}</string>
+      </property>
+      <property name="pageStep">
+       <number>10</number>
+      </property>
+      <property name="value">
+       <number>0</number>
+      </property>
+      <property name="tracking">
+       <bool>false</bool>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
      </widget>
     </item>
    </layout>
@@ -497,6 +613,7 @@
     <property name="title">
      <string>About</string>
     </property>
+    <addaction name="actionAbout_player"/>
    </widget>
    <addaction name="menuFile"/>
    <addaction name="menuAbout"/>
@@ -521,8 +638,15 @@
     </font>
    </property>
   </action>
+  <action name="actionAbout_player">
+   <property name="text">
+    <string>About player</string>
+   </property>
+  </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
- <resources/>
+ <resources>
+  <include location="icons.qrc"/>
+ </resources>
  <connections/>
 </ui>

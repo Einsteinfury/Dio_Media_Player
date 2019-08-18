@@ -6,6 +6,7 @@
 #include <QMediaPlaylist>
 #include <QGraphicsVideoItem>
 #include <QFileDialog>
+#include <QDialog>
 #include <QVideoWidget>
 #include <QBoxLayout>
 #include <QDateTime>
@@ -59,6 +60,8 @@ private slots:
     void on_playbackSlider_sliderReleased();
 
     void on_volumeSlider_sliderMoved(int position);
+
+    void on_actionAbout_player_triggered();
 
 private:
     Ui::Dio *ui;

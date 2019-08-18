@@ -1,5 +1,6 @@
 #include "dio.h"
 #include "ui_dio.h"
+#include "about.h"
 
 Dio::Dio(QWidget *parent) :
     QMainWindow(parent),
@@ -191,4 +192,11 @@ void Dio::on_playbackSlider_sliderReleased()
 void Dio::on_volumeSlider_sliderMoved(int position)
 {
     player->setVolume(position);
+}
+
+void Dio::on_actionAbout_player_triggered()
+{
+    about aboutPage;
+    aboutPage.setModal(true);
+    aboutPage.exec();
 }

@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/icons">
+        <file>icons/kono_dio_da.jpg</file>
+    </qresource>
+</RCC>

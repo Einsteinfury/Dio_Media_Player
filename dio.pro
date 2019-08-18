@@ -25,16 +25,22 @@ DEFINES += QT_DEPRECATED_WARNINGS
 CONFIG += c++11
 
 SOURCES += \
+        about.cpp \
         main.cpp \
         dio.cpp
 
 HEADERS += \
+        about.h \
         dio.h
 
 FORMS += \
+        about.ui \
         dio.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+RESOURCES += \
+    icons.qrc
