@@ -46,7 +46,6 @@ void Dio::checkAvalible(){
 
         else if (playlist->currentIndex() == playlist->mediaCount() - 1) {
             ui->nextButton->setEnabled(false);
-            qDebug() << "Stahp" <<endl;
         }
 
         else {
@@ -91,15 +90,12 @@ void Dio::positionChanged(qint64 postion){
 
     if (looped == true){
         if(player->duration() > 0 && player->position() >= player->duration() - 1000){
-            qDebug() << "lol" <<endl;
-            //player->setPosition(0);
-            //ui->playbackSlider->setValue(0);
             player->setPosition(1);
             emit positionChanged(1);
         }
 
         else if (player->duration() > 0 && postion != 0 && postion < 4){
-            qDebug() << "go" <<endl;
+           //still in work
 
         }
     }
